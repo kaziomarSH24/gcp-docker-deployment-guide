@@ -1,0 +1,12 @@
+vendor
+node_modules
+# .env
+.git
+storage_old
+public_old
+database.sql
+reach-app/usbek-website
+storage/logs
+# vendor
+docker-compose.override.yml
+public/storage

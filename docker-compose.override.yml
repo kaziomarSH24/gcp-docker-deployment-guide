@@ -1,0 +1,21 @@
+services:
+  react-app:
+    image: node:22-alpine
+    container_name: mytsv_react
+    working_dir: /var/www/
+    volumes:
+      - ./react-app:/var/www/react-app
+      - ./package.json:/var/www/package.json
+      - ./node_modules:/var/www/node_modules
+      - ./vite.config.dev.js:/var/www/vite.config.dev.js
+      - ./vite.config.prod.js:/var/www/vite.config.prod.js
+      - ./tailwind.config.js:/var/www/tailwind.config.js
+      - ./postcss.config.js:/var/www/postcss.config.js
+      - ./react-app/public:/var/www/react-app/public
+    command: npm run dev  # Vite dev server
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - mytsv_network
